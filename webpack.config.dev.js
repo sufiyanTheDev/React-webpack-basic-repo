@@ -1,5 +1,5 @@
 const path = require('path');
-
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
     mode: "development",
@@ -37,7 +37,10 @@ module.exports = {
         },
         open: true, // opens the webpage in your default browser when you run the appliaction
         port: 3000, // choose the port where in the webpage in can hosted
-    }
+    },
+    plugins: [
+        new BundleAnalyzerPlugin()  // used to analyze the final bundle size of the application
+    ]
 }
 
 
