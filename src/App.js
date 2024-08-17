@@ -1,8 +1,9 @@
 import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div>Hi welcome s</div>
+    <h1>Hi welcome s</h1>
   )
 }
 
