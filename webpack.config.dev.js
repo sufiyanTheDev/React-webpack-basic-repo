@@ -1,5 +1,6 @@
 const path = require('path');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -39,7 +40,11 @@ module.exports = {
         port: 3000, // choose the port where in the webpage in can hosted
     },
     plugins: [
-        new BundleAnalyzerPlugin()  // used to analyze the final bundle size of the application
+        new HtmlWebpackPlugin({
+            template: './src/index.html',  // Path to your template file
+            filename: 'index.html',        // Output file name
+        }),
+        // new BundleAnalyzerPlugin()  // used to analyze the final bundle size of the application (Optional)
     ]
 }
 
@@ -55,3 +60,6 @@ module.exports = {
 // style-loader
 // Purpose: The style-loader takes the CSS processed by css-loader and injects it into the DOM by creating style tags. This is particularly useful during development because it allows you to dynamically update styles without needing to reload the page.
 // How It Works: After css-loader processes the CSS file, style-loader takes the output and inserts it into the <head> of your HTML document as a <style> tag. This makes the styles immediately available to the page.
+
+// html-webpack-plugin
+// In a basic React project, HtmlWebpackPlugin can be used to automatically generate the index.html file that your application needs. Without this plugin, you would have to manually write the index.html file and keep it updated with the correct script paths every time you rebuild your project. The plugin automates this process, ensuring that your build is always up-to-date.
